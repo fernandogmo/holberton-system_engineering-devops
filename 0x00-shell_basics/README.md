@@ -5,3 +5,4 @@
 3. Display current directory contents in long format.
 4. Display current directory contents, including hidden files (starting with .). Use the long format.
 5. Display current directory content with user and group IDs displayed numerically, including hidden files (starting with .). Use the long format.
+6. Create a directory named `holberton` in the `/tmp/` directory.
