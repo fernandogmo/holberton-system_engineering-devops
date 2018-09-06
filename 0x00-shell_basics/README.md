@@ -10,3 +10,7 @@
 8. Delete the file `betty` from `/tmp/holberton`.
 9. Delete the directory `holberton` that is in the `/tmp` directory.
 10. Change the working directory to the previous one.
+11. List all files in current, parent and `/boot` directories, in long format.
+12. Print the type of a file named `imafile` in the `/tmp` directory.
+13. Create a symbolic link to `/bin/ls`, named `__ls__`.
+14. Copy all HTML files from the current directory to the parent directory (w/ some caveats).
