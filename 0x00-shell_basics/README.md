@@ -7,3 +7,6 @@
 5. Display current directory content with user and group IDs displayed numerically, including hidden files (starting with .). Use the long format.
 6. Create a directory named `holberton` in the `/tmp/` directory.
 7. Move the file `betty` from `/tmp/` to `/tmp/holberton`.
+8. Delete the file `betty` from `/tmp/holberton`.
+9. Delete the directory `holberton` that is in the `/tmp` directory.
+10. Change the working directory to the previous one.
