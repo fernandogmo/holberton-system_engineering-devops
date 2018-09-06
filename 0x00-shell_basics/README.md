@@ -14,3 +14,7 @@
 12. Print the type of a file named `imafile` in the `/tmp` directory.
 13. Create a symbolic link to `/bin/ls`, named `__ls__`.
 14. Copy all HTML files from the current directory to the parent directory (w/ some caveats).
+15. Move all files beginning with an uppercase letter to the directory `/tmp/u`.
+16. Delete all files in the current working directory that end with the character `~`.
+17. Create the directories `welcome/`, `welcome/to/` and `welcome/to/holberton` in the current directory.
+18. "Life is a series of commas, not periods"
