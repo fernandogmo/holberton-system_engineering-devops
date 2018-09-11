@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $PATH | grep ":/" -o | wc -l
+echo $(($(grep ':/' -o <<< $PATH | wc -l) + 1))
