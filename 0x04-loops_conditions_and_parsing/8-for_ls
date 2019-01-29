@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # This script is displays the contents of the current directory
 # in list format, displaying only the name after the first dash
-for f in [!.]*; do
+files=$(ls)
+for f in $files; do
 	echo "$f" | cut -d "-" -f 1 --complement
 done
