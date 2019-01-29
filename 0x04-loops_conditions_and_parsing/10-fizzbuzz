@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script is displays FizzBuzz for 1 to 100
+for n in {1..50}; do
+	out=""
+	! ((n % 3)) && out=Fizz
+	! ((n % 5)) && out+=Buzz
+	echo ${out:-$n}
+done
