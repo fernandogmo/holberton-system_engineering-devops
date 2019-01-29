@@ -3,5 +3,5 @@
 # in list format, displaying only the name after the first dash
 files=$(ls)
 for f in $files; do
-	echo "$f" | cut -d "-" -f 1 --complement
+	echo "$f" | cut -d "-" -f 2
 done
