@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Sends SIGTERM to `7-highlander` process
+pkill -f 7-highlander
