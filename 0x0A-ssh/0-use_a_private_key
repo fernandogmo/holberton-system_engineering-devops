@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Uses ssh to connect to my Holberton School-provisioned server using my private key
+ssh -i ~/.ssh/holberton ubuntu@35.237.166.85
