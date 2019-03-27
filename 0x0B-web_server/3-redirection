@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Configures Nginx so that /redirect_me
+# is redirecting to another page
+FILE=/etc/nginx/sites-available/default
+REDIRECT="location /redirect_me {\n return 301 http://www.fernando.ai;\n}\n"
+
+~/1-install_nginx_web_server
+
+sed -i "30i $REDIRECT" $FILE
+service nginx restart
