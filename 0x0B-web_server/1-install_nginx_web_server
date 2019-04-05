@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Installs nginx on my `web-01` server
+# Web server will be listening on port 80
+# Homepage will contain string `Holberton School`
+# Script will be run as root
+apt-get update -y
+apt-get install nginx -y
+echo "Holberton School" > /usr/share/nginx/html/index.html
+service nginx restart

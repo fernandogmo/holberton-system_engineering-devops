@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Displays all listening sockets, and their program names and PIDs.
+netstat -lp

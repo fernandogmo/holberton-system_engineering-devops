@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Configures Nginx so that /redirect_me
+# is redirecting to another page
+FILE=/etc/nginx/sites-available/default
+REDIRECT="\tlocation /redirect_me {\n\t\treturn 301 http://www.fernando.ai;\n\t}\n"
+apt-get update -y
+apt-get install nginx -y
+echo "Holberton School" > /usr/share/nginx/html/index.html
+sed -i "/^\tlocation \// i\ $REDIRECT" $FILE
+service nginx restart

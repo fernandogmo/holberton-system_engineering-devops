@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Create 4096-bit RSA key pair saved to `holberton` w/ passphrase `betty`
+ssh-keygen -b 4096 -f holberton -P betty
