@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Configure your Nginx server to have
+# a custom 404 page that contains
+# the string `Ceci n'est pas une page`,
+# and special redirect url to `fernando.ai`
+FILE=/etc/nginx/sites-available/default
+REDIRECT="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.fernando.ai;\n\t}\n"
+HOSTNAME=$(cat /etc/hostname)
+
+apt-get update -y
+apt-get install nginx -y
+
+echo "Holberton School" > /usr/share/nginx/html/index.html
+sed -i "/^\tserver_name localhost;/a\ $REDIRECT" $FILE
+
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/404.html
+sed -i "/^\t#error_page 404/s/#//g" $FILE
+
+sed -i "/^server {/a\ \tadd_header X-Served-By $HOSTNAME;" $FILE
+service nginx restart
