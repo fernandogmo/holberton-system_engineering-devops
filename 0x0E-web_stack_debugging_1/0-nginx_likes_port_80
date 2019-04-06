@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Goal: Get nginx listening on port 80.
+# Soln: Script symlinks `sites-available` to `sites-enabled`
+# 	`sites-available` came config'd to listen to 80.
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
