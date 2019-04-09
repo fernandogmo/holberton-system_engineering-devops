@@ -2,7 +2,7 @@
 # Install and configure HAproxy on your `lb-01` server.
 apt-get install software-properties-common -y
 add-apt-repository ppa:vbernat/haproxy-1.8 -y
-apt-get update
-apt-get install haproxy=1.8.\*
-# TODO config round robin
+apt-get update -y
+apt-get install haproxy=1.8.\* -y
+curl -o /etc/haproxy/haproxy.cfg https://fernando.ai/hbtn/0x0F-load_balancer/haproxy.cfg
 service haproxy restart
