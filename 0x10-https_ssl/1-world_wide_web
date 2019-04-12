@@ -20,12 +20,12 @@ parse_dig() {
 if [ $# == 1 ]; then
 	domain=$1
 	for subdomain in "${subdomains[@]}"; do
-		read sub recd dest <<< "$(parse_dig $domain $subdomain)"
+		read -r sub recd dest <<< "$(parse_dig $domain $subdomain)"
 		output $sub $recd $dest
 	done
 else
 	domain=$1
 	subdomain=$2
-	read sub recd dest <<< "$(parse_dig $domain $subdomain)"
+	read -r sub recd dest <<< "$(parse_dig $domain $subdomain)"
 	output $sub $recd $dest
 fi
