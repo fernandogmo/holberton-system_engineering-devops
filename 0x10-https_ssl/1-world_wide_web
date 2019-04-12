@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# a Bash script that will display information about subdomains
+# USAGE: ./1-world_wide_web <DOMAIN> [<SUBDOMAIN>]
+# shellcheck disable=SC2086
+
+subdomains=('www' 'lb-01' 'web-01' 'web-02')
+
+output () {
+	echo "The subdomain $1 is a $2 record and points to $3"
+}
+
+parse_dig() {
+	dom=$1
+	sub=$2
+	recd=$(dig -t A +noall +answer $sub.$dom | awk 'NR == 1 {print $(NF - 1)}')
+	dest=$(dig -t A +noall +answer $sub.$dom | awk 'NR == 1 {print $NF}')
+	echo $sub $recd $dest
+}
+
+if [ $# == 1 ]; then
+	domain=$1
+	for subdomain in "${subdomains[@]}"; do
+		read sub recd dest <<< "$(parse_dig $domain $subdomain)"
+		output $sub $recd $dest
+	done
+else
+	domain=$1
+	subdomain=$2
+	read sub recd dest <<< "$(parse_dig $domain $subdomain)"
+	output $sub $recd $dest
+fi
