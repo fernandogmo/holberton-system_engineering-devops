@@ -6,5 +6,5 @@ sed -i 's/80 default/8080 default/' /etc/nginx/sites-available/default
 
 # Nginx must be running as `nginx` user
 sed -i 's/#user www-data;/user nginx;/' /etc/nginx/nginx.conf
-chmod +r /etc/nginx/nginx.conf
+chmod 755 /etc/nginx/nginx.conf
 sudo -u nginx service nginx restart
