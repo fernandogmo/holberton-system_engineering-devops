@@ -35,11 +35,12 @@ if __name__ == '__main__':
 
         with open("todo_all_employees.json", 'w') as f:
             for user in employees:
-                uid, name = str(user.get('id')), user.get('username')
+                uid = str(user.get('id'))
                 user_tasks = get(URL + "/todos?userID=" + uid).json()
-                tasks = [{"task": task.get('title'),
-                          "completed": task.get('completed'),
-                          "username": name} for task in user_tasks]
+                tasks = [{"username": user.get('username'),
+                          "task": task.get('title'),
+                          "completed": task.get('completed')}
+                         for task in user_tasks]
                 json.dump({uid: tasks}, f)
     except Exception as err:
         print("USAGE: ./3-dictionary_of_list_of_dictionaries.py")
