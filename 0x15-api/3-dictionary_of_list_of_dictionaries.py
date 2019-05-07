@@ -26,8 +26,8 @@ qui omnis", "completed": false, "username": "Ziggy"}, {"task":
 
 
 if __name__ == '__main__':
-    from requests import get
     import json
+    from requests import get
 
     try:
         URL = "https://jsonplaceholder.typicode.com"
