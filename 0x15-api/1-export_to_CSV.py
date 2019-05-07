@@ -16,9 +16,9 @@ USAGE:
 
 
 if __name__ == '__main__':
+    import csv
     from requests import get
     from sys import argv
-    import csv
 
     try:
         URL = "https://jsonplaceholder.typicode.com"
