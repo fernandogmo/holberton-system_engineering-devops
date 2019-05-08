@@ -24,7 +24,7 @@ if __name__ == '__main__':
         URL = "https://jsonplaceholder.typicode.com"
         ID = argv[1]
         employee = get(URL + "/users/" + ID).json()
-        name = employee.get('name')
+        name = employee.get('username')
         all_tasks = get(URL + "/todos?userId=" + ID).json()
         done_tasks = [task.get('title')
                       for task in all_tasks if task.get('completed')]
