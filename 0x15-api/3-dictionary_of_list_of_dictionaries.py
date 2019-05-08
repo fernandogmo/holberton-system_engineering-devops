@@ -33,14 +33,15 @@ if __name__ == '__main__':
         URL = "https://jsonplaceholder.typicode.com"
         employees = get(URL + "/users/").json()
 
+        tasks = []
+        for user in employees:
+            uid = str(user.get('id'))
+            user_tasks = get(URL + "/todos?userId=" + uid).json()
+            tasks += [{"username": user.get('username'),
+                      "task": task.get('title'),
+                      "completed": task.get('completed')}
+                     for task in user_tasks]
         with open("todo_all_employees.json", 'w') as f:
-            for user in employees:
-                uid = str(user.get('id'))
-                user_tasks = get(URL + "/todos?userId=" + uid).json()
-                tasks = [{"username": user.get('username'),
-                          "task": task.get('title'),
-                          "completed": task.get('completed')}
-                         for task in user_tasks]
                 json.dump({uid: tasks}, f)
     except Exception as err:
         print("USAGE: ./3-dictionary_of_list_of_dictionaries.py")
