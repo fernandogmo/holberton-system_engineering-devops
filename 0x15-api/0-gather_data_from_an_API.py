@@ -25,11 +25,11 @@ if __name__ == '__main__':
         ID = argv[1]
         employee = get(URL + "/users/" + ID).json()
         name = employee.get('name')
-        all_tasks = get(URL + "/todos?userID=" + ID).json()
+        all_tasks = get(URL + "/todos?userId=" + ID).json()
         done_tasks = [task.get('title')
                       for task in all_tasks if task.get('completed')]
         print("Employee {} is done with tasks({}/{}):"
               .format(name, len(done_tasks), len(all_tasks)))
-        print("\t ", "\n\t ".join(done_tasks))
+        print("\t", "\n\t ".join(done_tasks))
     except IndexError:
         print("USAGE: ./0-gather_data_from_an_API.py <NUMERIC_ID>")

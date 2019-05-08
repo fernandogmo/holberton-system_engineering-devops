@@ -25,7 +25,7 @@ if __name__ == '__main__':
         ID = argv[1]
         employee = get(URL + "/users/" + ID).json()
         name = employee.get('name')
-        all_tasks = get(URL + "/todos?userID=" + ID).json()
+        all_tasks = get(URL + "/todos?userId=" + ID).json()
 
         with open(ID + ".csv", 'w') as f:
             writer = csv.writer(f, quoting=csv.QUOTE_ALL)
