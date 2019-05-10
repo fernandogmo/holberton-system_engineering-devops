@@ -1,26 +1,19 @@
 #!/usr/bin/python3
-"""
-This module has one function: top_ten(subreddit).
-"""
+''' TODO '''
 import requests
-import sys
 
 
 def top_ten(subreddit):
-    """
-    Queries a subreddit and returns the top ten posts
-    """
-    # URL and headers to make API requests from
-    url = 'https://reddit.com/r'
-
-    # Subscriber count information
-    top_ten = requests.get('{}/{}/top/.json?count=10'
-                           .format(url, subreddit),
-                           headers={'User-Agent': 'Mozilla/5.0'})\
-        .json().get('data').get('children')[:10]
-
-    if not top_ten:
-        top_ten = None
-
-    for value in top_ten:
-        print(value.get('data').get('title'))
+    ''' TODO '''
+    URL = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    custom_agent = {'User-Agent': 'fernando@api'}
+    response = requests.get(URL, headers=custom_agent, allow_redirects=False)
+    if response.status_code == 200:
+        try:
+            top = response.json().get('data').get('children')
+            for t in top:
+                print(t.get('data').get('title'))
+        except Exception as e:
+            print('None')
+    else:
+        print("None")
